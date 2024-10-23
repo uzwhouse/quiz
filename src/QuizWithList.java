@@ -1,5 +1,3 @@
-import models.User;
-
 import static pages.LoginPage.loginPage;
 
 public class QuizWithList {

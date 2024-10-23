@@ -4,10 +4,14 @@ import models.User;
 import services.Quiz;
 import services.UserService;
 
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 
 public class UserServiceImpl implements UserService, Quiz {
 
+//    User -> username bo'yicha unique'
+    private LinkedHashSet<User> users = new LinkedHashSet<>();
+//    private User session;
 
     @Override
     public User login(String username, String password) {
