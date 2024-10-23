@@ -8,5 +8,5 @@ public interface UserService extends CRUDService {
     User register(String username, String password);
 
     User logout();
-//    User getSessionUser();
+    User getSessionUser();
 }

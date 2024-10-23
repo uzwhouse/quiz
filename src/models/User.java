@@ -4,7 +4,7 @@ import roles.UserRole;
 
 import java.util.Objects;
 
-public class User extends BaseGeneric{
+public class User extends BaseGeneric {
     private String username;
     private String password;
     private UserRole userRole = UserRole.STUDENT;
@@ -62,7 +62,7 @@ public class User extends BaseGeneric{
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         User user = (User) obj;
-        return username.equals(user.username);
+        return this.username.equalsIgnoreCase(user.username);
 
 /*        if (this == obj) return true;
         if (obj == null) return false;
