@@ -18,9 +18,15 @@ public class UserServiceImpl implements UserService, Quiz {
 
     @Override
     public User login(String username, String password) {
-
-
-//        return findByUsername(username);
+        User user = findByUsername(username);
+        if (Objects.nonNull(user) &&
+                Objects.equals(username, user.getUsername()) &&
+                Objects.equals(password, user.getPassword())) {
+            System.out.printf(GREEN + "'%s' user successfully login" + RESET, user);
+            return user;
+        }
+        System.out.printf(RED + "Wrong login or password" + RESET);
+        return null;
     }
 
     @Override
