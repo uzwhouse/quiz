@@ -109,9 +109,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void readAll() {
+    public LinkedHashSet<User> readAll() {
         users.forEach(System.out::println);
         System.out.println();
+        return users;
     }
 
     @Override

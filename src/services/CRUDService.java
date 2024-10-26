@@ -9,7 +9,7 @@ public interface CRUDService {
 
     Object delete(String username);
 
-    void readAll();
+    Object readAll();
 
     void creatStaticUsers();
 }

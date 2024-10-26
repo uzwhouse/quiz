@@ -2,6 +2,8 @@ package services;
 
 import models.User;
 
+import java.util.LinkedHashSet;
+
 public interface UserService extends CRUDService, Quiz {
     User login(String username, String password);
 
@@ -11,4 +13,6 @@ public interface UserService extends CRUDService, Quiz {
 
     User getSessionUser();
 
+    @Override
+    LinkedHashSet<User> readAll();
 }
