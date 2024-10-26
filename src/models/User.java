@@ -49,12 +49,8 @@ public class User extends BaseGeneric {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", userRole=" + userRole +
-                '}';
+        return "User={id='%s',%n username='%s', password='%s', userRole='%s'}"
+                .formatted(id, username, password, userRole.toString());
     }
 
     @Override
