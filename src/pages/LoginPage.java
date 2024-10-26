@@ -9,21 +9,21 @@ public class LoginPage {
             case "1" -> login();
             case "2" -> register();
             case "q" -> quit();
-            default -> System.out.println(RED + "Wrong choice !!!" + RESET);
+            default -> System.out.println(RED + "Wrong choice !!!\n" + RESET);
         }
     }
 
     private static void quit() {
-        System.out.println(YELLOW + "QUIT" + RESET);
+        System.out.println(YELLOW + "-------------------- QUIT --------------------" + RESET);
         System.exit(0);
     }
 
     private static void register() {
-        System.out.println(YELLOW + "Register..." + RESET);
+        userService.register(readConsole("username: "), readConsole("password: "));
     }
 
     private static void login() {
-        System.out.println(YELLOW + "Login..." + RESET);
+        userService.login(readConsole("username: "), readConsole("password: "));
     }
 
     public static void showLoginPage() {

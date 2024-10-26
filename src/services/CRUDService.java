@@ -1,15 +1,15 @@
 package services;
 
-import java.util.LinkedList;
-
 public interface CRUDService {
     Object create(Object object);
 
-    Object read(String id);
+    Object read(String username);
 
-    Object update(String id);
+    Object update(String username);
 
-    Object delete(String id);
+    Object delete(String username);
 
-    LinkedList<Object> readAll();
+    void readAll();
+
+    void creatStaticUsers();
 }

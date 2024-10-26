@@ -2,11 +2,13 @@ package services;
 
 import models.User;
 
-public interface UserService extends CRUDService {
+public interface UserService extends CRUDService, Quiz {
     User login(String username, String password);
 
     User register(String username, String password);
 
     User logout();
+
     User getSessionUser();
+
 }

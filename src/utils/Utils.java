@@ -1,5 +1,8 @@
 package utils;
 
+import serviceImpl.UserServiceImpl;
+import services.UserService;
+
 import java.util.Scanner;
 
 public class Utils {
@@ -16,8 +19,12 @@ public class Utils {
 
     public static Scanner scanner = new Scanner(System.in);
 
+    public static UserService userService = new UserServiceImpl();
+
     public static String readConsole(String hint) {
         System.out.print(hint);
         return scanner.nextLine();
     }
+
+
 }
