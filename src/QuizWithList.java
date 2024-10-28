@@ -6,12 +6,14 @@ import static pages.StudentPage.studentPage;
 import static pages.TeacherPage.teacherPage;
 import static roles.UserRole.ADMIN;
 import static roles.UserRole.TEACHER;
+import static utils.Utils.questionService;
 import static utils.Utils.userService;
 
 public class QuizWithList {
 
     public static void main(String[] args) {
-        userService.creatStaticUsers();
+        userService.createStatic();
+        questionService.createStatic();
         runQuiz();
     }
 
