@@ -12,7 +12,7 @@ public class StudentPage {
         }
     }
 
-    private static void logout() {
+    public static void logout() {
         userService.logout();
     }
 
