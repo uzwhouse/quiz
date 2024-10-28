@@ -34,7 +34,7 @@ public class Question extends BaseGeneric {
 
     @Override
     public String toString() {
-        return "Question{id='%s',%n question='%s',%n answers='%s'}"
+        return "Question{id='%s',%n question='%s',%n'%s'}"
                 .formatted(id, question, answers);
     }
 
