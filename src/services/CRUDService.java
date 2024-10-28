@@ -3,13 +3,17 @@ package services;
 public interface CRUDService {
     Object create(Object object);
 
-    Object read(String username);
+    Object read(String str);
 
-    Object update(String username);
+    Object update(String str);
 
-    Object delete(String username);
+    Object delete(String str);
 
     Object readAll();
 
-    void creatStaticUsers();
+    Object findByStr(String str);
+
+    Object notFound(String str);
+
+    void createStatic();
 }
