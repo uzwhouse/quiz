@@ -13,8 +13,7 @@ public record Answer(String answer, Boolean isCorrect) {
 
     @Override
     public String toString() {
-        return "Answer[answer='%s', isCorrect='%s']"
-                .formatted(answer, isCorrect);
+        return "answer='%s', isCorrect='%s'%n".formatted(answer, isCorrect);
     }
 
 }
