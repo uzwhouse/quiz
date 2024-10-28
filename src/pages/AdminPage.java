@@ -2,43 +2,41 @@ package pages;
 
 import models.User;
 
+import static pages.StudentPage.logout;
 import static utils.Utils.*;
 
 public class AdminPage {
     public static void adminPage() {
         showAdminPage();
         switch (readConsole(BLUE + "Choice: " + RESET)) {
-            case "1" -> create();
-            case "2" -> read();
-            case "3" -> update();
-            case "4" -> delete();
-            case "5" -> readAll();
+            case "1" -> createUser();
+            case "2" -> readUser();
+            case "3" -> updateUser();
+            case "4" -> deleteUser();
+            case "5" -> readAllUser();
             case "e" -> logout();
             default -> System.out.println(RED + "Wrong choice !!!\n" + RESET);
         }
     }
 
-    private static void logout() {
-        userService.logout();
+    private static void readAllUser() {
+        userService.readAll().forEach(System.out::println);
+        System.out.println();
     }
 
-    private static void readAll() {
-        userService.readAll();
-    }
-
-    private static void delete() {
+    private static void deleteUser() {
         userService.delete(readConsole("Username: "));
     }
 
-    private static void update() {
+    private static void updateUser() {
         userService.update(readConsole("Username: "));
     }
 
-    private static void read() {
+    private static void readUser() {
         userService.read(readConsole("Username: "));
     }
 
-    private static void create() {
+    private static void createUser() {
         userService.create(new User(
                 readConsole("Username: "),
                 readConsole("Password: ")));
