@@ -1,13 +1,16 @@
 package models;
 
+import dtos.Result;
 import roles.UserRole;
 
+import java.util.LinkedList;
 import java.util.Objects;
 
 public class User extends BaseGeneric {
     private String username;
     private String password;
     private UserRole userRole = UserRole.STUDENT;
+    private LinkedList<Result> results;
 
     public User() {
     }
@@ -49,8 +52,8 @@ public class User extends BaseGeneric {
 
     @Override
     public String toString() {
-        return "User={id='%s',%n username='%s', password='%s', userRole='%s'}"
-                .formatted(id, username, password, userRole.toString());
+        return "User={id='%s',%n username='%s', password='%s', userRole='%s',%n '%s'}"
+                .formatted(id, username, password, userRole.toString(), results);
     }
 
     @Override
@@ -65,6 +68,14 @@ public class User extends BaseGeneric {
         if (!(obj instanceof User u)) return false;
 
         return u.username.equals(this.username);*/
+    }
+
+    public LinkedList<Result> getResults() {
+        return results;
+    }
+
+    public void setResults(LinkedList<Result> results) {
+        this.results = results;
     }
 
     @Override
