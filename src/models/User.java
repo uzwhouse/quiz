@@ -3,10 +3,11 @@ package models;
 import dtos.Result;
 import roles.UserRole;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Objects;
 
-public class User extends BaseGeneric {
+public class User extends BaseGeneric implements Serializable {
     private String username;
     private String password;
     private UserRole userRole = UserRole.STUDENT;
@@ -52,16 +53,20 @@ public class User extends BaseGeneric {
 
     @Override
     public String toString() {
-        return "User={id='%s',%n username='%s', password='%s', userRole='%s',%n '%s'}"
-                .formatted(id, username, password, userRole.toString(), results);
+        return "User={id='%s',%n username='%s', password='%s', userRole='%s'}"
+                .formatted(id, username, password, userRole.toString());
     }
 
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
+        if (!(obj instanceof User user)) return false;
+        return username.equals(user.username);
+
+/*        if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         User user = (User) obj;
-        return this.username.equalsIgnoreCase(user.username);
+        return this.username.equalsIgnoreCase(user.username);*/
 
 /*        if (this == obj) return true;
         if (obj == null) return false;
