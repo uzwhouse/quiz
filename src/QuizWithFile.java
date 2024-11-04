@@ -9,7 +9,7 @@ import static roles.UserRole.TEACHER;
 import static utils.Utils.questionService;
 import static utils.Utils.userService;
 
-public class QuizWithList {
+public class QuizWithFile {
 
     public static void main(String[] args) {
         userService.createStatic();
