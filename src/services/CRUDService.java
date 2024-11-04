@@ -11,9 +11,4 @@ public interface CRUDService {
 
     Object readAll();
 
-    Object findByStr(String str);
-
-    Object notFound(String str);
-
-    void createStatic();
 }
