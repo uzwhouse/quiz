@@ -25,20 +25,20 @@ public class AdminPage {
     }
 
     private static void deleteUser() {
-        userService.delete(readConsole("Username: "));
+        userService.delete(readConsole("Username: ").toUpperCase());
     }
 
     private static void updateUser() {
-        userService.update(readConsole("Username: "));
+        userService.update(readConsole("Username: ").toUpperCase());
     }
 
     private static void readUser() {
-        userService.read(readConsole("Username: "));
+        userService.read(readConsole("Username: ").toUpperCase());
     }
 
     private static void createUser() {
         userService.create(new User(
-                readConsole("Username: "),
+                readConsole("Username: ").toUpperCase(),
                 readConsole("Password: ")));
     }
 
