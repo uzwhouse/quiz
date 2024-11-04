@@ -1,7 +1,7 @@
 package utils;
 
 import serviceImpl.QuestionServiceImpl;
-import serviceImpl.UserServiceImpl;
+import serviceImpl.user.UserServiceImpl;
 import services.QuestionService;
 import services.UserService;
 
