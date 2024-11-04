@@ -23,7 +23,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question read(String id) {
-        Question question = findByStr(id);
+        Question question = findById(id);
         if (Objects.nonNull(question)) {
             System.out.println(CYAN + question + RESET);
             System.out.println();
@@ -34,7 +34,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question update(String id) {
-        Question question = findByStr(id);
+        Question question = findById(id);
         if (Objects.nonNull(question)) {
             question.setQuestion(readConsole("QuestionText: "));
             question.setAnswers(new LinkedList<>(List.of(
@@ -51,7 +51,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question delete(String id) {
-        Question question = findByStr(id);
+        Question question = findById(id);
         if (Objects.nonNull(question)) {
             System.out.println(CYAN + "Question successfully deleted\n" + RESET);
             questions.remove(question);
@@ -65,8 +65,8 @@ public class QuestionServiceImpl implements QuestionService {
         return questions;
     }
 
-    @Override
-    public Question findByStr(String id) {
+
+    public Question findById(String id) {
         for (Question question : questions) {
             if (question.getId().equals(id)) {
                 return question;
@@ -75,14 +75,12 @@ public class QuestionServiceImpl implements QuestionService {
         return null;
     }
 
-    @Override
     public Question notFound(String id) {
         System.out.printf(RED + "Question with id '%s' not found\n\n" + RESET, id);
         return null;
     }
 
-    @Override
-    public void createStatic() {
+    {
         questions.add(new Question("1+1 = ?",
                 new LinkedList<>(List.of(
                         new Answer("3", false),
