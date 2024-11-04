@@ -19,11 +19,11 @@ public class LoginPage {
     }
 
     private static void register() {
-        userService.register(readConsole("username: "), readConsole("password: "));
+        userService.register(readConsole("username: ").toUpperCase(), readConsole("password: "));
     }
 
     private static void login() {
-        userService.login(readConsole("username: "), readConsole("password: "));
+        userService.login(readConsole("username: ").toUpperCase(), readConsole("password: "));
     }
 
     public static void showLoginPage() {
