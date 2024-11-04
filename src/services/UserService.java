@@ -12,7 +12,7 @@ public interface UserService extends CRUDService, Quiz {
 
     User register(String username, String password);
 
-    User logout();
+    void logout();
 
     User getSessionUser();
 }
