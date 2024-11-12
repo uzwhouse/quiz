@@ -3,22 +3,22 @@ package models;
 import java.io.Serializable;
 
 public class Result implements Serializable {
-    private String question;
+    private Question question;
     private Answer answer;
 
     public Result() {
     }
 
-    public Result(String question, Answer answer) {
+    public Result(Question question, Answer answer) {
         this.question = question;
         this.answer = answer;
     }
 
-    public String getQuestion() {
+    public Question getQuestion() {
         return question;
     }
 
-    public void setQuestion(String question) {
+    public void setQuestion(Question question) {
         this.question = question;
     }
 
@@ -32,6 +32,6 @@ public class Result implements Serializable {
 
     @Override
     public String toString() {
-        return "Question '%s', YourAnswer '%s' is '%s'%n".formatted(question, answer.getAnswer(), answer.getIsCorrect());
+        return "Question '%s', YourAnswer '%s' is '%s'%n".formatted(question.getQuestion(), answer.getAnswer(), answer.getIsCorrect());
     }
 }

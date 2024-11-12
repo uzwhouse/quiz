@@ -4,7 +4,6 @@ import models.Answer;
 import models.Question;
 import models.Result;
 
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
 
 import static utils.Utils.*;
@@ -12,8 +11,8 @@ import static utils.Utils.*;
 public class StartQuiz extends LoginService {
 
     @SuppressWarnings("unchecked")
-    protected LinkedHashSet<Result> quizStart() {
-        LinkedHashSet<Result> sessionUserResults = new LinkedHashSet<>();
+    protected LinkedList<Result> quizStart() {
+        LinkedList<Result> sessionUserResults = new LinkedList<>();
         System.out.println(GREEN + "################# Starting Quiz #################" + RESET);
         for (Question question : (LinkedList<Question>) questionService.readAll()) {
             System.out.println(question.getQuestion());
@@ -28,7 +27,7 @@ public class StartQuiz extends LoginService {
                 case "e" -> answers.get(3);
                 default -> new Answer(null, false);
             };
-            sessionUserResults.add(new Result(question.getQuestion(), answer));
+            sessionUserResults.add(new Result(question, answer));
         }
         return sessionUserResults;
     }

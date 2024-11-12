@@ -90,6 +90,14 @@ public class QuestionServiceImpl implements QuestionService {
         return null;
     }
 
+    public static Answer getTrueAnswer(Question question) {
+        for (Answer a : question.getAnswers()) {
+            if (a.getIsCorrect())
+                return a;
+        }
+        return null;
+    }
+
     {
         writeQuestionToFile(new Question("1+1 = ?",
                 new LinkedList<>(List.of(

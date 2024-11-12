@@ -1,12 +1,18 @@
 package serviceImpl.user;
 
+import models.Answer;
+import models.Question;
+import models.Result;
 import models.User;
 import services.UserService;
 
+import java.util.Collections;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.Objects;
 
 import static roles.UserRole.*;
+import static serviceImpl.question.QuestionServiceImpl.getTrueAnswer;
 import static serviceImpl.user.UserFileOperation.*;
 import static utils.Utils.*;
 
@@ -55,7 +61,25 @@ public class UserServiceImpl extends LoginService implements UserService {
         return notFound(username);
     }
 
+    @Override
+    public void updateForTeacher(String username) {
+        LinkedHashSet<User> localUsers = readAllUsersFromFile();
+        int grade = Integer.parseInt(readConsole("Enter grade number: "));
 
+        for (User u : localUsers) {
+            if (u.getUsername().equalsIgnoreCase(username)) {
+                LinkedList<Result> results = u.getResults();
+                for (int i = 0; i < grade; i++) {
+                    Question question = results.get(i).getQuestion();
+                    Answer trueAnswer = getTrueAnswer(question);
+                    results.get(i).setAnswer(trueAnswer);
+                }
+                Collections.shuffle(results);
+            }
+        }
+        writeUsersListToFile(localUsers);
+        readAllUsersFromFile().forEach(System.out::println);
+    }
 
     @Override
     public User delete(String username) {
@@ -110,25 +134,6 @@ public class UserServiceImpl extends LoginService implements UserService {
     public User getSessionUser() {
         return sessionUser();
     }
-
- /*   @Override
-    public User updateForTeacher(String username) {
-        LinkedHashSet<User> localUsers = readAllUsersFromFile();
-        User user = findByUsername(username);
-        int pr = Integer.parseInt(readConsole("%: "));
-
-        for (User u : localUsers) {
-            if (u.getUsername().equals(username)) {
-                for (int i = 0; i < pr; i++) {
-                    for (Result result : u.getResults()) {
-                        result.setAnswer();
-                    }
-                }
-            }
-        }
-
-        return null;
-    }*/
 
     {
         writeUserToFile(new User("aa", "a", ADMIN));

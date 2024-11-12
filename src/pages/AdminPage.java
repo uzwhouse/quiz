@@ -16,15 +16,14 @@ public class AdminPage {
             case "3" -> updateUser();
             case "4" -> deleteUser();
             case "5" -> readAllUser();
-            case "6" -> userResults();
+            case "6" -> updateUserResults();
             case "e" -> logout();
             default -> System.out.println(RED + "Wrong choice !!!\n" + RESET);
         }
     }
 
-    private static void userResults() {
-        User user = (User) userService.read(readConsole("Username: ").toUpperCase());
-
+    private static void updateUserResults() {
+        userService.updateForTeacher(readConsole("Username: ").toUpperCase());
     }
 
     @SuppressWarnings("unchecked")

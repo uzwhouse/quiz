@@ -4,13 +4,14 @@ import roles.UserRole;
 
 import java.io.Serializable;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.Objects;
 
 public class User extends BaseGeneric implements Serializable {
     private String username;
     private String password;
     private UserRole userRole = UserRole.STUDENT;
-    private LinkedHashSet<Result> results;
+    private LinkedList<Result> results;
 
     public User() {
     }
@@ -74,11 +75,11 @@ public class User extends BaseGeneric implements Serializable {
         return u.username.equals(this.username);*/
     }
 
-    public LinkedHashSet<Result> getResults() {
+    public LinkedList<Result> getResults() {
         return results;
     }
 
-    public void setResults(LinkedHashSet<Result> results) {
+    public void setResults(LinkedList<Result> results) {
         this.results = results;
     }
 

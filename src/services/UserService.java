@@ -12,5 +12,5 @@ public interface UserService extends CRUDService, Quiz {
 
     User getSessionUser();
 
-//    User updateForTeacher(String username);
+    void updateForTeacher(String username);
 }
