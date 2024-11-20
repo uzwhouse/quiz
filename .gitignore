@@ -350,3 +350,6 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 /.idea/quiz-file.iml
+/data/questions.txt
+/quiz-log.iml
+/data/users.txt
